@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .deal-timer {
+                max-width: 608px;
+                margin: auto;
+                background: #f6ebe3;
+                border: 1px solid #e9bda1;
+                border-radius: 8px;
+                position: relative;
+                text-align: center;
+                display: flow-root;
+                margin-bottom: 30px;
+            }
+
+            .deal-timer h2 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #000;
+                line-height: 27px;
+                margin-bottom: 0px;
+                background: #e9bda1;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                margin-top: 0px;
+            }
+            .deal-timer h2 a {
+                color: #000;
+            }
+
+            .deal-timer ul {
+                padding: 12px 0px 0px;
+                margin: 0px 0px;
+                display: flex;
+                justify-content: center;
+            }
+            .deal-timer ul li {
+                padding: 0px 0px;
+                margin: 0px 0px;
+                list-style: none;
+                width: auto;
+                font-size: 68px;
+                font-weight: 800;
+                color: #707070;
+                line-height: 84px;
+                padding: 0px 3px;
+            }
+
+            .deal-timer ul li h3 {
+                font-size: 68px;
+                font-weight: 800;
+                color: #ff667b;
+                line-height: 84px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            .deal-timer ul li h3 a {
+                color: #ff667b;
+            }
+            .deal-timer ul li h3 span {
+                width: 70px;
+                height: 84px;
+                background: #fff;
+                border: 1px solid #e9bda1;
+                display: inline-block;
+                margin: 5px 5px;
+            }
+
+            .deal-timer ul li p {
+                font-size: 14px;
+                font-weight: 300;
+                color: #000;
+                line-height: 27px;
+                margin-bottom: 5px;
+            }
+            .deal-timer ul li p a {
+                color: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="deal-timer">
+            <h2>DEAL GUARANTEED FOR</h2>
+            <ul>
+                <li>
+                    <h3>
+                        <span id="hoursFirstDigit">2</span
+                        ><span id="hoursSecondDigit">3</span>
+                    </h3>
+                    <p>HOURS</p>
+                </li>
+                <li>:</li>
+                <li>
+                    <h3>
+                        <span id="minutesFirstDigit">5</span
+                        ><span id="minutesSecondDigit">9</span>
+                    </h3>
+                    <p>MINUTES</p>
+                </li>
+                <li>:</li>
+                <li>
+                    <h3>
+                        <span id="secondsFirstDigit">5</span
+                        ><span id="secondsSecondDigit">9</span>
+                    </h3>
+                    <p>SECONDS</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- <script>
+            const initialHours = 23; // Set the initial hours value
+
+            function updateCounter() {
+                function updateDigit(firstSpanId, secondSpanId, value) {
+                    const firstDigitSpan = document.getElementById(firstSpanId);
+                    const secondDigitSpan =
+                        document.getElementById(secondSpanId);
+
+                    const firstDigit = Math.floor(value / 10);
+                    const secondDigit = value % 10;
+
+                    firstDigitSpan.textContent = firstDigit;
+                    secondDigitSpan.textContent = secondDigit;
+                }
+
+                const hours = parseInt(
+                    document.getElementById("hoursFirstDigit").textContent +
+                        document.getElementById("hoursSecondDigit").textContent
+                );
+                const minutes = parseInt(
+                    document.getElementById("minutesFirstDigit").textContent +
+                        document.getElementById("minutesSecondDigit")
+                            .textContent
+                );
+                const seconds = parseInt(
+                    document.getElementById("secondsFirstDigit").textContent +
+                        document.getElementById("secondsSecondDigit")
+                            .textContent
+                );
+
+                let updatedHours = hours;
+                let updatedMinutes = minutes;
+                let updatedSeconds = seconds;
+
+                if (seconds > 0) {
+                    updatedSeconds--;
+                } else {
+                    updatedSeconds = 59;
+
+                    if (minutes > 0) {
+                        updatedMinutes--;
+                    } else {
+                        updatedMinutes = 59;
+
+                        if (hours > 0) {
+                            updatedHours--;
+                        } else {
+                            // Countdown has reached 0, you can handle this case if needed.
+                        }
+                    }
+                }
+
+                updateDigit(
+                    "hoursFirstDigit",
+                    "hoursSecondDigit",
+                    updatedHours
+                );
+                updateDigit(
+                    "minutesFirstDigit",
+                    "minutesSecondDigit",
+                    updatedMinutes
+                );
+                updateDigit(
+                    "secondsFirstDigit",
+                    "secondsSecondDigit",
+                    updatedSeconds
+                );
+            }
+            // Initial update to set the counter to 23 hours
+            updateDigit("hoursFirstDigit", "hoursSecondDigit", initialHours);
+
+            // Update the counter every second
+            setInterval(updateCounter, 1000);
+        </script> -->
+
+        <script>
+            const initialHours = 23;
+
+            function updateDigit(firstSpanId, secondSpanId, value) {
+                const firstDigitSpan = document.getElementById(firstSpanId);
+                const secondDigitSpan = document.getElementById(secondSpanId);
+
+                const firstDigit = Math.floor(value / 10);
+                const secondDigit = value % 10;
+
+                firstDigitSpan.textContent = firstDigit;
+                secondDigitSpan.textContent = secondDigit;
+            }
+
+            function updateCounter() {
+                let hours = parseInt(
+                    document.getElementById("hoursFirstDigit").textContent +
+                        document.getElementById("hoursSecondDigit").textContent
+                );
+                let minutes = parseInt(
+                    document.getElementById("minutesFirstDigit").textContent +
+                        document.getElementById("minutesSecondDigit")
+                            .textContent
+                );
+                let seconds = parseInt(
+                    document.getElementById("secondsFirstDigit").textContent +
+                        document.getElementById("secondsSecondDigit")
+                            .textContent
+                );
+
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    seconds = 59;
+
+                    if (minutes > 0) {
+                        minutes--;
+                    } else {
+                        minutes = 59;
+
+                        if (hours > 0) {
+                            hours--;
+                        } else {
+                            // Countdown has reached 0, you can handle this case if needed.
+                        }
+                    }
+                }
+
+                updateDigit("hoursFirstDigit", "hoursSecondDigit", hours);
+                updateDigit("minutesFirstDigit", "minutesSecondDigit", minutes);
+                updateDigit("secondsFirstDigit", "secondsSecondDigit", seconds);
+            }
+
+            // Initial update to set the counter to 23 hours
+            updateDigit("hoursFirstDigit", "hoursSecondDigit", initialHours);
+
+            // Update the counter every second
+            setInterval(updateCounter, 1000);
+        </script>
+    </body>
+</html>
